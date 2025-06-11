@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "postbuild": "xcopy /E /I /Y src\\generated dist\\generated",
+    "postbuild": "cp -r src/generated dist/generated || echo 'No generated folder to copy'",
     "start": "node dist/index.js"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "@types/express": "^5.0.2",
     "@types/node": "^20.11.17",
     "@types/open": "^6.1.0",
+    "cpx": "^1.5.0",
     "dotenv": "^16.5.0",
     "prisma": "^6.9.0",
     "tsx": "^4.7.1",
